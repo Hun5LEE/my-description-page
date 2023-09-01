@@ -1,8 +1,12 @@
+"use client";
+
 import { Icon } from "@/styles/style";
+import { useState, useEffect } from "react";
 import tw from "tailwind-styled-components";
+import CategoryWrapper from "../category/CategoryWrapper";
 
 const StartWrapper = tw.div`
-  h-full
+  h-[90%]
   w-[4.75rem]
   border-r-[1.5px]
   border-r-[#919191]
@@ -11,6 +15,7 @@ const StartWrapper = tw.div`
 
 const StartButton = tw.button`
   flex
+  bg-[#C0C0C0]
   items-center
   h-full
   w-[4.5rem]
@@ -22,7 +27,8 @@ const StartButton = tw.button`
 `;
 
 const Text = tw.span`
-  font-normal
+  text-black  
+  font-bold
 `;
 
 const SortBar = tw.div`
@@ -37,7 +43,7 @@ const SortBar = tw.div`
 `;
 
 const ShortCutWrapper = tw.div`
-  h-full
+  h-[90%]
   border-r-[1.5px]
   border-r-[#919191]
   mr-[2px]
@@ -45,11 +51,18 @@ const ShortCutWrapper = tw.div`
 `;
 
 const FooterNavContent = () => {
+  const [visible, setVisible] = useState(false);
+
+  const handleStartButton = () => {
+    setVisible((prev) => !prev);
+  };
+
   return (
     <>
+      <CategoryWrapper visible={visible} />
       <StartWrapper>
-        <StartButton>
-          <Icon src="images/window_icon.png" width={24} height={100} />
+        <StartButton onClick={handleStartButton}>
+          <Icon src="images/window_icon.png" />
           <Text>시작</Text>
         </StartButton>
       </StartWrapper>

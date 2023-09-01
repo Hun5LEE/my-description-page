@@ -1,6 +1,11 @@
 import tw from "tailwind-styled-components";
 
 const Icon = tw.img`
+  w-[24px]
 `;
 
-export { Icon };
+const NormalText = tw.span`
+  
+`;
+
+export { Icon, NormalText };
